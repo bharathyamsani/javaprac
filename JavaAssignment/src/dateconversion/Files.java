@@ -18,11 +18,16 @@ public class Files {
 				while((ch=fr.read())!=-1) {
 					System.out.print((char)(ch));
 				}
+				System.out.println();
 				fr.close();
 			}
 			if(f.canWrite()) {
-				FileWriter fw=new FileWriter(f);
+				System.out.println("New File:");
+				FileWriter fw=new FileWriter(f,true);
+				//PrintWriter pw=new PrintWriter(fw,true);
 				fw.append("\n Hello");
+				fw.close();
+				//fw.close();
 				FileInputStream fis=new FileInputStream(path);
 				Scanner newscan=new Scanner(fis);
 				while(newscan.hasNext()) {
@@ -31,7 +36,8 @@ public class Files {
 				
 			}
 		}
-		
+		File file=new File("C:\\Users\\Admin\\Desktop\\git.html");
+		if(!file.exists()) file.createNewFile();
 	}
 
 }
